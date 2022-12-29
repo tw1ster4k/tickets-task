@@ -3,15 +3,50 @@ import {cn} from "@bem-react/classname"
 import { useState } from 'react';
 import data from "./tickets.json"
 import Air from "./pictures/air.png"
-import Company from "./pictures/company.png"
-import AirTransfer from "./pictures/airtransfer.png"
+import Card from './Card/Card';
 
 function App() {
   const cnApp = cn('App')
   const [tickets, setTickets] = useState(data.tickets)
-  console.log(tickets)
 
+  console.log(tickets)
   
+ 
+  const All = () => {
+    
+    const all = data.tickets
+    setTickets(all)
+    
+  }
+
+  const nullTransfers =  () => {
+    
+    const zero = data.tickets.filter((el) => el.stops === 0)
+    setTickets(zero)
+    
+  }
+
+  const oneTransfers = () => {
+   
+    const one = data.tickets.filter((el) => el.stops === 1)
+    setTickets(one)
+    
+  }
+
+  const twoTransfers = () => {
+    
+    const two = data.tickets.filter((el) => el.stops === 2)
+    setTickets(two)
+    
+  }
+
+  const threeTransfers = () => {
+      
+        const three = data.tickets.filter((el) => el.stops === 3)
+        setTickets(three)
+  
+  }
+
   
 
   return (
@@ -29,35 +64,19 @@ function App() {
 
             <div className={cnApp("Transfers")}>
             <p className={cnApp("Paragraph")}>Количество пересадок</p>
-            <p className={cnApp("Paragraph",{size:'small'})}><input type="checkbox" className={cnApp("Checkbox")} /> Все</p>
-            <p className={cnApp("Paragraph",{size:'small'})}><input type="checkbox" className={cnApp("Checkbox")} /> Без пересадок</p>
-            <p className={cnApp("Paragraph",{size:'small'})}><input type="checkbox" className={cnApp("Checkbox")} /> 1 пересадка</p>
-            <p className={cnApp("Paragraph",{size:'small'})}><input type="checkbox" className={cnApp("Checkbox")} /> 2 пересадки</p>
-            <p className={cnApp("Paragraph",{size:'small'})}><input type="checkbox" className={cnApp("Checkbox")} /> 3 пересадки</p>
+            <p className={cnApp("Paragraph",{size:'small'})}><input type="checkbox" onChange={All} className={cnApp("Checkbox")} /> Все</p>
+            <p className={cnApp("Paragraph",{size:'small'})}><input type="checkbox" onChange={nullTransfers} className={cnApp("Checkbox")} /> Без пересадок</p>
+            <p className={cnApp("Paragraph",{size:'small'})}><input type="checkbox" onChange={oneTransfers} className={cnApp("Checkbox")} /> 1 пересадка</p>
+            <p className={cnApp("Paragraph",{size:'small'})}><input type="checkbox" onChange={twoTransfers} className={cnApp("Checkbox")} /> 2 пересадки</p>
+            <p className={cnApp("Paragraph",{size:'small'})}><input type="checkbox" onChange={threeTransfers}  className={cnApp("Checkbox")} /> 3 пересадки</p>
             </div>
 
           </div>
-          <div className={cnApp("Tickets")}>
-            <div className={cnApp("Price")}>
-              <img src={Company} alt="logo"  className={cnApp("Logo")}/>
-              <button className={cnApp("Buy")}>Купить за 20000₽</button>
-            </div>
-            <div className={cnApp("Data")}>
-                      <div className={cnApp("Departure")}>
-                      <p className={cnApp("Paragraph", {size:"big"})}>9:25</p>
-                      <p className={cnApp("Paragraph",{size:'small', positon:"underTime"})}>VVO, Владивосток</p>
-                      <p className={cnApp("Paragraph",{size:'tiny', positon:"under"})}>9 окт 2018, Пт</p>
-                      </div>
-                      <div className={cnApp('Transfer')}>
-                      <p className={cnApp("Paragraph",{size:'tiny', positon:"upper"})}>1 пересадка</p>
-                            <img src={AirTransfer} alt="" className={cnApp("ImageTransfer")} />
-                      </div>
-                      <div className={cnApp("Landing")}>
-                      <p className={cnApp("Paragraph", {size:"big"})}>11:45</p>
-                      <p className={cnApp("Paragraph",{size:'small', positon:"underTime"})}>Тель-Авив, TLV</p>
-                      <p className={cnApp("Paragraph",{size:'tiny', positon:"under"})}>10 окт 2018, Пт</p>
-                      </div>
-            </div>
+          <div>
+          {tickets.map((el, index) =>
+            <Card origin={el.origin} origin_name={el.origin_name} destination={el.destination} destination_name={el.destination_name} departure_date={el.departure_date} departure_time={el.departure_time} arrival_date={el.arrival_date} arrival_time={el.arrival_time} stops={el.stops} price={el.price}  key={index} />
+            )
+          }
           </div>
 
         </div>

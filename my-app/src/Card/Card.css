@@ -1,0 +1,114 @@
+@font-face {
+    font-family: "Roboto-Medium";
+    src: url(../Fonts/Roboto-Medium.ttf);
+  }
+  
+  @font-face {
+    font-family: "Roboto-Light";
+    src: url(../Fonts/Roboto-Light.ttf);
+  }
+
+  .Card{
+    display: flex;
+    justify-content: space-evenly;
+    width: 550px;
+    background-color: white;
+    height: 150px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+
+  .Card-Paragraph{
+    color: gray;
+    font-size:medium;
+    font-family: Roboto-Medium;
+  }
+
+  .Card-Paragraph_size_small{
+    font-size:small;
+  }
+  
+  .Card-Logo{
+    height: 40px;
+    margin-top: 20px;
+  }
+  
+  .Card-Buy{
+    background-color: rgb(255, 119, 0);
+    color: #e4f8fb;
+    width: 120px;
+    height: 60px;
+    border-color: rgb(255, 119, 0);
+    border-radius: 10px; 
+    margin-top: 10px;
+  }
+  
+  .Card-Price{
+    width: 210px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px solid #D3D3D3;
+  }
+  
+  
+  
+  .Card-Data{
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+    border: 1px solid #D3D3D3;
+    margin: 0;
+  }
+  
+  .Card-Departure{
+    width: 120px;
+    height: 150px;
+    
+  }
+  
+  .Card-Paragraph_size_big{
+    font-size: 30px;
+    margin: 0;
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+  
+  .Card-Paragraph_positon_underTime{
+    margin: 0;
+    margin-left: 30px;
+    margin-top: 10px;
+    white-space: nowrap;
+  }
+  
+  .Card-Transfer{
+    width: 100px;
+    height: 150px;
+    margin-left: 40px;
+  }
+  
+  .Card-Paragraph_size_tiny{
+      font-family: Roboto-Light;
+      font-size: 10px;
+  }
+  
+  .Card-Paragraph_positon_under{
+    margin-left: 30px;
+  }
+  
+  .Card-Paragraph_positon_upper{
+    margin: 0;
+    margin-top: 20px;
+  }
+  
+  .Card-ImageTransfer{
+    height: 70px;
+    margin-top: -20px;
+  }
+  
+  .Card-Landing{
+    width: 150px;
+    height: 150px;
+    
+  }
